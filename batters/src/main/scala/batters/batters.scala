@@ -32,6 +32,7 @@ object batters {
     
         val data=spark.read.option("multiLine",true).format("json").load("file:///E://Workouts//Data//blueArrayJson.txt")
         data.printSchema()
+        println("Class Task-Batters")
         val output=data.withColumn("batters_batter",explode($"batters.batter")).withColumn("topping",explode($"topping")).selectExpr("batters_batter.id as Batters_ID","batters_batter.type as Batters_Type","id","name","ppu","topping.id as Topping_Id","topping.type as Topping_Type","type")
         output.show(false)
     
