@@ -121,6 +121,8 @@ object Spark_SQL_Main {
        val rdd_data=sql_data.rdd
       rdd_data.take(5).foreach(println)
       
+
+      
   }
   
   
